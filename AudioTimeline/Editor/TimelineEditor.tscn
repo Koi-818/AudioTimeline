@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://x66t17jx2pg5"]
+
+[ext_resource type="Script" path="res://addons/AudioTimeline/Editor/TimelineEditor.gd" id="1_cm3i2"]
+
+[node name="TimelineEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cm3i2")
+
+[node name="FileMenu" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 408.0
+offset_bottom = 130.0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="NewButton" type="Button" parent="FileMenu"]
+layout_mode = 2
+text = "New"
+
+[node name="OpenButton" type="Button" parent="FileMenu"]
+layout_mode = 2
+text = "Open"
+
+[node name="EventScroll" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 124.0
+offset_right = 408.0
+offset_bottom = 648.0
+size_flags_vertical = 3
+
+[node name="EventListPanel" type="VBoxContainer" parent="EventScroll"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="EventListTitle" type="Label" parent="EventScroll/EventListPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_font_sizes/font_size = 16
+text = "Events"
+
+[node name="EventButtons" type="HBoxContainer" parent="EventScroll/EventListPanel"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="AudioButton" type="Button" parent="EventScroll/EventListPanel/EventButtons"]
+layout_mode = 2
+text = "Audio"
+
+[node name="AwaitButton" type="Button" parent="EventScroll/EventListPanel/EventButtons"]
+layout_mode = 2
+text = "Await"
+
+[node name="StopButton" type="Button" parent="EventScroll/EventListPanel/EventButtons"]
+layout_mode = 2
+text = "Stop"
+
+[node name="ChoiceButton" type="Button" parent="EventScroll/EventListPanel/EventButtons"]
+layout_mode = 2
+text = "Choice"
+
+[node name="EventList" type="VBoxContainer" parent="EventScroll/EventListPanel"]
+layout_mode = 2
+
+[node name="PropertiesPanel" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 410.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/separation = 5
+
+[node name="PropertiesTitle" type="Label" parent="PropertiesPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_font_sizes/font_size = 16
+text = "Properties"
+
+[node name="PropertiesContainer" type="VBoxContainer" parent="PropertiesPanel"]
+layout_mode = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+size = Vector2i(303, 180)
+root_subfolder = "res://addons/AudioTimeline/Timelines/"
+filters = PackedStringArray("[\"*.json\"]")
+
+[node name="StatusLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1

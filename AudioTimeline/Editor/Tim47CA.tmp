@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://x66t17jx2pg5"]
+
+[ext_resource type="Script" path="res://addons/AudioTimeline/Editor/TimelineEditor.gd" id="1_cm3i2"]
+
+[sub_resource type="GDScript" id="GDScript_yuvp6"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="TimileEditor" type="Window"]
+size = Vector2i(1920, 1080)
+script = ExtResource("1_cm3i2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileControls" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="NewButton" type="Button" parent="VBoxContainer/FileControls"]
+layout_mode = 2
+text = "New"
+
+[node name="OpenButton" type="Button" parent="VBoxContainer/FileControls"]
+layout_mode = 2
+text = "Open"
+
+[node name="SaveButton" type="Button" parent="VBoxContainer/FileControls"]
+layout_mode = 2
+text = "Save"
+
+[node name="MainContent" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="EventListContainer" type="VBoxContainer" parent="VBoxContainer/MainContent"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MainContent/EventListContainer"]
+layout_mode = 2
+text = "Events"
+
+[node name="EventsContainer" type="VBoxContainer" parent="VBoxContainer/MainContent/EventListContainer"]
+layout_mode = 2
+
+[node name="AddEventControls" type="HBoxContainer" parent="VBoxContainer/MainContent/EventListContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="AddAudioButton" type="Button" parent="VBoxContainer/MainContent/EventListContainer/AddEventControls"]
+layout_mode = 2
+text = "Audio"
+
+[node name="AddAwaitButton" type="Button" parent="VBoxContainer/MainContent/EventListContainer/AddEventControls"]
+layout_mode = 2
+text = "Await"
+
+[node name="AddStopButton" type="Button" parent="VBoxContainer/MainContent/EventListContainer/AddEventControls"]
+layout_mode = 2
+text = "Stop"
+
+[node name="AddChoiceButton" type="Button" parent="VBoxContainer/MainContent/EventListContainer/AddEventControls"]
+layout_mode = 2
+text = "Choice"
+
+[node name="PropertiesContainer" type="VBoxContainer" parent="VBoxContainer/MainContent"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MainContent/PropertiesContainer"]
+layout_mode = 2
+text = "Properties"
+script = SubResource("GDScript_yuvp6")
+
+[node name="PropertiesFields" type="VBoxContainer" parent="VBoxContainer/MainContent/PropertiesContainer"]
+layout_mode = 2
